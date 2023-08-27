@@ -1,0 +1,252 @@
+/*cmm choose-box */
+body{
+  box-sizing: border-box;
+  transition:all 0.4s ease;
+}
+
+.container{
+  margin: 50px auto;
+  width: 500px;
+  background-color: #dfe6f0;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: #dfe6f0 0px 0px 15px;
+}
+
+.mg-b30{
+  margin-bottom: 30px;
+}
+
+.p-b10{
+  padding-bottom: 10px;
+}
+.choose-list {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: flex-start;
+}
+
+.choose-list li {
+  display: flex;
+  position: relative;
+  margin-right: 30px;
+}
+
+.choose-list .alternate {
+  margin-bottom: 10px;
+}
+
+.choose-list .alternate-input {
+  position: absolute;
+  opacity: 0;
+}
+
+.choose-list .alternate-label span {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.choose-list .alternate-label,
+.choose-list .alternate-label span {
+  position: relative;
+}
+
+.choose-list .alternate-label {
+  color: #575757;
+  cursor: pointer;
+}
+
+.alternate-input+.alternate-label span {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  background: transparent;
+  text-align: center;
+  border-radius: 50%;
+  vertical-align: middle;
+  content: '';
+}
+
+//checked
+.alternate-input:not(:disabled).alternate-input:checked+.alternate-label span {
+  background-color: transparent;
+}
+
+.alternate-input:not(:disabled).alternate-input:checked+.alternate-label span::before {
+  border-color: #2e42db;
+  background-color: #3147ea;
+  transition: 0.3s;
+}
+
+//checked disabled
+.alternate-input:disabled.alternate-input:checked+.alternate-label span::before {
+  background-color: #ddd;
+}
+
+.alternate-input:disabled+.alternate-label {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+//checkmark style
+.alternate-input+.alternate-label span::before,
+.alternate-input:checked+.alternate-label span::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  transform: translateY(-50%);
+}
+
+.alternate-input+.alternate-label span::before {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #ccc;
+  content: "";
+}
+
+//radio style
+.radio .alternate-input+.alternate-label span::before {
+  border-radius: 50%;
+}
+
+//checkbox style
+.checkbox .alternate-input+.alternate-label span::before {
+  border-radius: 20%;
+}
+
+.alternate-input:checked+.alternate-label span::after {
+  top: 34%;
+  left: 0px;
+  width: 2.69px;
+  height: 7.69px;
+  border: 1px solid #ffffff;
+  content: "";
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-width: 0px 2px 2px 0;
+}
+
+//hover
+.alternate:hover .alternate-input:not(:disabled)+.alternate-label span {
+  background-color: #3469cc;
+  border-color: transparent;
+}
+
+.alternate:hover .alternate-input:not(:disabled)+.alternate-label span::before {
+  border-color: #83a1f6;
+}
+
+//toggle-switch
+//cmm toggle
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 35px;
+  height: 20px;
+  border-radius: 34px;
+  background-color: #172bc8;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.toggle-slider::before,
+.toggle-slider::after {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.toggle-slider::before {
+  height: 18px;
+  width: 18px;
+  left: 1px;
+  bottom: 1px;
+  background-color:#ffffff;
+}
+
+.toggle-slider::after {
+  display: none;
+  height: 28px;
+  width: 28px;
+  left: -4px;
+  bottom: -4px;
+  opacity: 20%;
+  background-color: #ccc;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  margin-right: 25px;
+  margin-top: 4px;
+}
+
+.switch:hover .toggle-input:not(:disabled)+.toggle-slider::after {
+  display: block;
+}
+
+.toggle-input:checked+.toggle-slider {
+  background-color: #172bc8;
+}
+
+.toggle-input:focus+.toggle-slider {
+  box-shadow: 0 0 1px #172bc8;
+}
+
+.toggle-input:checked+.toggle-slider::before,
+.toggle-input:checked+.toggle-slider::after {
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+.toggle-ttl {
+  font-size: 24px;
+  font-weight: 700;
+  color: #172bc8;
+}
+
+.toggle-txt {
+  color: #575757;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1340px) {
+  /*cmm choose-box */
+  .choose-box p {
+    margin-bottom: 7px;
+  }
+  
+  .choose-list li {
+    margin-right: 30px;
+  }
+
+  .choose-list .alternate {
+    margin-bottom: 10px;
+  }
+
+  .alternate-input+.alternate-label span {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+  }
+}
